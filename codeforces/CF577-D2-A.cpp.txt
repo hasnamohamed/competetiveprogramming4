@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <iomanip>
+using namespace std;
+int main() {
+	int n, sum = 0;
+	long long x, m;
+	long long k = 0;
+	cin >> n >> x;
+	if (x > n) {
+		int f = 0;
+		f = x / n;
+		for (int i = f; i <= n; i++)
+		{
+			m = x / i;
+			if (x%i == 0 &&m<=n)
+				sum++;
+		}
+	}
+	else {
+		for (int i = 1; i <= n; i++)
+		{
+			if (x%i == 0)
+				sum++;
+		}
+	}
+	cout << sum << endl;
+
+	cin >> x;
+	return 0;
+}

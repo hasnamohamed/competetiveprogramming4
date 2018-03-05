@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <sstream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+unsigned long long arr[1000000];
+
+int main()
+{
+	string s;
+	short sum = 0, x;
+	cin >> s;
+	for (int i = 0; i<s.size(); i++)
+	{
+		arr[s[i] - 'a'] = 1;
+	}
+	for (int i = 0; i<26; i++)
+	{
+		sum += arr[i];
+	}
+	if (sum % 2 == 0)
+		cout << "CHAT WITH HER!" << endl;
+	else
+		cout << "IGNORE HIM!" << endl;
+	cin >> x;
+	return 0;
+}

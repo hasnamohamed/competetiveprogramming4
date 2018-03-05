@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <sstream>
+#include <iomanip>
+using namespace std;
+unsigned long long arr[1000000];
+unsigned long long ar[1000000];
+
+int main() {
+	unsigned long long x, n, y;
+	unsigned long long o = 0;
+	int a1, a2, a3, b1, b2, b3;
+	cin >> a1 >> a2 >> a3 >> b1 >> b2 >> b3;
+	x = a1 + a2 + a3;
+	y = b1 + b2 + b3;
+	cin >> n; 
+		if (x % 5 == 0)
+		{
+			o += x / 5;
+		}
+		else
+		{
+			o += x / 5;
+			o++;
+		}
+		if (y % 10 == 0)
+			o += y / 10;
+		else
+		{
+			o += y / 10;
+			o++;
+		}
+		if (o <= n)
+			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
+	
+	cin >> x;
+	return 0;
+}
