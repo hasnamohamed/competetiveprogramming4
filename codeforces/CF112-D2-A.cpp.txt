@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <sstream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+unsigned long long arr[1000000];
+
+int main()
+{
+	int x;
+	string n, m;
+	cin >> n >> m;
+	for (int i = 0; i < n.size(); i++)
+	{
+		if (n[i] >= 65 && n[i] <= 91)
+			n[i] += 32;
+	}
+	for (int i = 0; i < m.size(); i++)
+	{
+		if (m[i] >= 65 && m[i] <= 91)
+			m[i] += 32;
+	}
+	
+	x = n.compare(m);
+	cout << x << endl;
+	cin >> x;
+	return 0;
+}
