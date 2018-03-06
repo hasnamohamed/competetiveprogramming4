@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <sstream>
+#include <vector>
+#include <fstream>
+#include <iomanip>
+#include <queue>
+#include <deque>
+using namespace std;
+int main()
+{
+	string  ss, s, m = "";
+	while (getline(cin,ss))
+	{
+		m = "";
+		if (ss == "DONE") {
+			break;
+		}
+		else
+		{
+			for (int i = 0; i < ss.size(); i++)
+			{
+				if (ss[i] >= 65 && ss[i] <= 90)
+					m += ss[i] + 32;
+				else if (ss[i] != '?'&&ss[i] != '.'&&ss[i] != ','&&ss[i] != '!' &&ss[i] != ' ')
+					m += ss[i];
+			}
+			s = m;
+			reverse(m.begin(), m.end());
+			if (m == s) 
+				cout<< "You won’t be eaten!"<<"\n";
+			else 
+				cout<< "Uh oh.."<<"\n";
+		}
+	}
+	return 0;
+}
