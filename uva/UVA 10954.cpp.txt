@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <sstream>
+#include <vector>
+#include <iomanip>
+#include <set>
+#include <bitset>
+using namespace std;
+/*void fast()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}*/
+int arr[1000000];
+//int ar[1000000];
+int main() {
+	//fast();
+	long long x, y;
+	multiset<int>arr;
+	multiset<int>::iterator it;
+	multiset<int>::iterator it2;
+	while (cin >> x)
+	{
+		arr.clear();
+		long long sum = 0, sum2 = 0;;
+		if (x == 0)
+			return 0;
+		else {
+			for (int i = 0; i < x; i++)
+			{
+				cin >> y;
+				arr.insert(y);
+			}
+			while (arr.size() >1) {
+				it = arr.begin();
+				it2 = it++;
+				sum = *it + *it2;
+				sum2 += sum;
+				arr.erase(it);
+				arr.erase(it2);
+				arr.insert(sum);
+			}
+		}
+		cout << sum2<< endl;
+	}
+	return 0;
+}
