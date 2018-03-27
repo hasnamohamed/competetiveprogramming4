@@ -1,0 +1,51 @@
+#include <iostream>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+long long arr[100];
+long long ar[100];
+long long a[100];
+long long aa[100];
+int main()
+{
+	int r, n, f;
+	while (cin >> r >> n) {
+		for (int i = 0; i < r; i++)
+		{
+			arr[i] = 0;
+		}
+		for (int i = 0; i < n; i++)
+		{
+			ar[i] = 0; 
+			a[i] = 0;
+			aa[i] = 0;
+		}
+		if (r == 0 && n == 0)
+			return 0;
+		else
+		{
+		for (int i = 0; i < r; i++)
+		{
+			cin >> f;
+			arr[i] += f;
+		}
+		for (int i = 0; i < n; i++)
+		{
+			cin >> ar[i] >> a[i] >> aa[i];
+			arr[a[i]-1] += aa[i];
+			arr[ar[i]-1] -= aa[i];
+		}
+		int dd = 0;
+		for (int i = 0; i < r; i++)
+		{
+			if (arr[i] < 0)
+				dd = 9;
+		}
+		if (dd == 0)
+			cout << "S" << endl;
+		else
+			cout << "N" << endl;
+	}
+}
+	return 0;
+}
