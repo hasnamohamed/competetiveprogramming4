@@ -1,0 +1,72 @@
+#include <iostream>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+int arr[100][100];
+int ar[100];
+int a [100];
+void fun(int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++) {
+			if (arr[i][j])
+			{
+				ar[i]++;   // calc num of ones on each row
+			}
+			if (arr[j][i])
+			{
+				a[i]++; // calc num of ones on each row
+			}
+		}
+	}
+}
+int main()
+{
+	int r = 0, n, f = 0, sum1 = 0, sum2 = 0;
+	while (cin >> n) {
+		if (n == 0)
+			return 0;
+		f = 0; r = 0; sum1 = 0; sum2 = 0;
+		for (int i = 0; i < 100; i++)
+		{
+			for (int j = 0; j < 100; j++)
+			arr[i][j] = 0;
+			ar[i] = 0;   a[i] = 0;
+		}
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+				cin >> arr[i][j];
+		}
+		fun(n);                    // calc the num of ones on each row and col
+		for (int i = 0; i < n; i++)
+		{
+			if (a[i] % 2 != 0)
+			{
+				f = i+1;
+				sum1++;       // the num of rows that have odd number of ones
+			}
+			if (ar[i] % 2 != 0)
+			{
+				r = i+1;
+				sum2++;     // the num of col that have odd number of ones
+			}
+		}
+		if (r != 0 && f != 0 && sum1 <= 1 && sum2 <= 1)
+			cout << "Change bit ("<<r<<","<<f<<")" << "\n";
+
+		else if (r == 0 && f != 0 && sum1 <= 1 && sum2 <= 1)
+			cout << "Change bit (" << r << "," << f << ")" << "\n";
+
+		else  if (r != 0 && f == 0 && sum1 <= 1 && sum2 <= 1)
+			cout << "Change bit (" << r << "," << f << ")" << "\n";
+
+		else if (r == 0 && f == 0)
+			cout << "OK" << "\n";
+		
+		else if (sum1 > 1 || sum2 > 1)
+			cout << "Corrupt" << "\n";
+}
+	return 0;
+}
