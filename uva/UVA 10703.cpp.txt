@@ -1,0 +1,98 @@
+#include <iostream>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+int arr[1000][1000];
+int ar[1000];
+int a [1000];
+void nn(int n, int r) {
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < r; j++)
+			arr[i][j] = 0;
+	}
+}
+void n(int s, int ss, int m,int mm)
+{
+	if (ss > mm)
+	{
+		for (int i = mm - 1; i < ss; i++)
+		{
+			if (s > m)
+			{
+				for (int j = m - 1; j < s; j++)
+				{
+					arr[i][j] = 1;
+				}
+			}
+			else
+			{
+				for (int j = s - 1; j < m; j++)
+				{
+					arr[i][j] = 1;
+				}
+			}
+		}
+	}
+	else
+	{
+		for (int i = ss - 1; i < mm; i++)
+		{
+			if (s > m)
+			{
+				for (int j = m - 1; j < s; j++)
+				{
+					arr[i][j] = 1;
+				}
+			}
+			else
+			{
+				for (int j = s - 1; j < m; j++)
+				{
+					arr[i][j] = 1;
+				}
+			}
+		}
+	}
+	
+}
+int main()
+{
+	int r, bn, f, s, ss, sum = 0, m, mm;
+	while (cin >> bn >> r >> f) {
+		sum = 0;
+		if (bn == 0 && r == 0 && f == 0)
+			return 0;
+		nn(r, bn);
+		for (int i = 0; i < f; i++)
+		{
+			cin >> s >> ss >> m >> mm;
+			n(s, ss, m, mm);
+		}
+		
+		for (int i = 0; i < r; i++)
+		{
+			for (int j = 0; j < bn; j++)
+			{
+				if (arr[i][j] == 0)
+					sum++;
+			}
+		}
+		if (sum == 0)
+		{
+			cout <<"There is no empty spots." << endl;
+		}
+		else if(sum==1)
+		{
+			cout << "There is one empty spot." << endl;
+		}
+		else if (sum == 2)
+		{
+			cout << "There is two empty spot." << endl;
+		}
+		else
+			cout << "There are "<<sum<<" empty spots." << endl;
+		
+}
+	return 0;
+}
