@@ -1,0 +1,61 @@
+#include <iostream>
+#include<cstdio>
+#include<cmath>
+#include <vector>
+#include <cctype>
+#include <set>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <string>
+using namespace std;
+set <string> ss;
+int main()
+{
+	
+	/*stack<char>st;
+	string s;
+	int x;
+	cin >> s;
+	for (int i = 0; i < s.size(); i++) {
+		if (s[0] == ']' || s[0] == '}' || s[0] == ')')
+		{
+			if (st.size() == 0) {
+				cout << "no" << endl;
+				cin >> s;
+				return 0;
+			}
+			else if (st.top() == '('&&s[i] == ')') st.pop();
+		else if (st.top() == '{'&&s[i] == '}') st.pop();
+		else if (st.top() == '['&&s[i] == ']') st.pop();
+		else
+		{
+			cout << "no" << endl;
+			cin >> s;
+			return 0;
+		}
+		}
+		else 
+			st.push(s[i]);
+	}
+	if (!st.empty())
+		cout << "yes";
+	else
+		cout << "no" << endl;*/
+	int x, n, y, z, arr[100000];
+	set<int> st;
+	while (cin >> n >> z) {
+		if (n == 0 && z == 0)
+			return 0;
+		for (int i = 0; i < (n + z); i++)
+		{
+			cin >> x;
+			st.insert(x);
+		}
+		cout << (n + z) - st.size() << "\n";
+		st.clear();
+	}
+	cin >> x;
+	return 0;
+}

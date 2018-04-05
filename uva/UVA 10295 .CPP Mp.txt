@@ -1,0 +1,42 @@
+#include <iostream>
+#include<cstdio>
+#include<cmath>
+#include <vector>
+#include <cctype>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <string>
+using namespace std;
+set <string> ss;
+int main()
+{
+	int x, n, y, z, sum = 0;
+	string s;
+	map<string, int>mp;
+	cin >> x >> y;
+	for (int i = 0; i < x; i++)
+	{
+		cin >> s >> z;
+		mp[s] = z;
+	}
+	for (int i = 0; i < y; i++)
+	{
+		sum = 0;
+		while (cin >> s)
+		{
+			if (s == ".")
+				break;
+			else
+			{
+				sum += mp[s];
+			}
+		}
+		cout << sum << "\n";
+	}
+	cin >> x;
+	return 0;
+}
