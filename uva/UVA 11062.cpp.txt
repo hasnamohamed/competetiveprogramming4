@@ -1,0 +1,66 @@
+#include <iostream>
+#include<cstdio>
+#include<cmath>
+#include <vector>
+#include <cctype>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
+#include <stack>
+#include <string>
+using namespace std;
+void fast()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+set <string>ss;
+int main()
+{
+	fast();
+	char s, x[200];
+	int z = 0;
+	while (true)
+	{
+		s = getchar();
+		if (s == EOF)
+			break;
+		if (isupper(s))
+		{
+			s += 32;
+			x[z++]= s;
+		}
+		else if (islower(s))
+			x[z++] = s;
+		else if (s != '-')
+		{
+			x[z++] = '\0';
+			if (z >1)
+				ss.insert(x);
+			z=0;
+		}
+		else
+		{
+			s = getchar();
+			if (s != '\n')
+			{
+				x[z++] = '-';
+				if (isupper(s))
+					s += 32;
+				x[z++] = s;
+			}
+		}
+ 	}
+	set<string>::iterator it;
+	for (it = ss.begin(); it != ss.end(); it++)
+	{
+		cout << *it << endl;
+	}
+#if _DEBUG
+	system("pause");
+#endif
+	return 0;
+}
