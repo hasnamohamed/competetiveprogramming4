@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+long long pow(int b, int p,int m)
+{
+	if (p == 0)
+		return 1;
+	long long sq = pow(b, p / 2,m);
+	sq = (sq * sq)%m;
+	if (p % 2 == 1)
+		sq = (sq * b)%m;
+	return sq;
+}
+int main()
+{
+
+	int a, b, value,k;
+	while (cin >> a >> b >> value) {
+		k = pow(a, b, value) % value;
+		cout << k << endl;
+	}
+#if _DEBUG
+	system("pause");
+#endif
+	return 0;
+}

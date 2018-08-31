@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <sstream>
+#include <vector>
+#include <fstream>
+#include <iomanip>
+#include <set>
+using namespace std;
+struct d
+{
+	int x;
+	int y;
+};
+vector<pair<int, int>>arr;
+bool c(const d l, const d r)
+{
+	return l.x < r.x;
+}
+int main()
+{
+	d dd[10000];
+	long long z, f = 0, sum;
+	cin >> sum >> z;
+	for (int i = 0; i < z; i++)
+	{
+		cin >> dd[i].x >> dd[i].y;
+	}
+	sort(dd, dd + z, c);
+	for (int i = 0; i < z; i++)
+	{
+		if (sum > dd[i].x)
+		{
+			sum += dd[i].y;
+		}
+		else
+		{
+			break;
+
+		}
+	}
+	int rr = dd[z - 1].x;
+	if (sum>rr)
+		cout << "YES" << endl;
+	else
+		cout << "NO" << endl;
+	cin >> f;
+	return 0;
+}

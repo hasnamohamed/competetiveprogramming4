@@ -1,0 +1,80 @@
+#include<iostream>
+
+#include<ctime>
+
+#include<malloc.h>
+
+#include<queue>
+
+#include <cmath>
+
+#include<algorithm>
+
+#include <string>
+
+#include<stack>
+
+#include <map>
+
+#include <vector>
+
+#include <iomanip>
+
+using namespace std;
+
+int arr[1000000], a[1000], ar[100000];
+
+map<char, int>m;
+
+map<char, int>mm;
+
+int main()
+{
+
+	int s1, s2;
+
+	while (cin >> s1 >> s2) {
+
+		int k = 0;
+	
+	for (int i = 0; i < 1000000; i++)
+		{
+			arr[i] = 0;
+		}
+		for (int i = 0; i < s2; i++)
+		{
+			arr[i + 1] = (arr[i] + s1) % s2;
+		}
+		sort(arr, arr + s2);
+
+		cout << setw(10)<<s1 <<setw(10)<< s2 << "    ";
+	
+	       for (int i = 0; i < s2; i++)
+		{
+			if (arr[i] != i)
+			{
+				k = 9;
+				break;
+			}
+		}
+		if (k != 0)
+
+			cout << "Bad Choice" << endl;
+
+		else
+	
+		cout << "Good Choice" << endl;
+	
+	cout << endl;
+	}
+
+#if _DEBUG
+
+	system("pause");
+
+#endif
+	
+return 0;
+
+
+}

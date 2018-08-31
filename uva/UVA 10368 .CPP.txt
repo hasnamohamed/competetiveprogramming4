@@ -1,0 +1,25 @@
+#include <iostream>
+#include<string>
+#include <cmath>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	int n, m;
+	while (cin >> m >> n && n != 0 && m != 0)
+	{
+		string s = "Stan";if (m > n)swap(n, m);
+		while (true)
+		{
+			if (!(min(n, m)) || ((max(n, m)) / (min(n, m))) > 1 || m == n) {
+				cout << s << " wins" << endl; break;
+			}
+			if (n >= m) { n = n % m;  s = "Ollie";}
+			else if (m >= n) { m = m % n;s = "Stan";  }
+		}
+	}
+#if _DEBUG
+	system("pause");
+#endif
+	return 0;
+}
